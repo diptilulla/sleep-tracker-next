@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
+import { checkUser } from "@/lib/checkUser";
+import { UserProvider } from "@/context/UserContext";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,21 +22,27 @@ export const metadata: Metadata = {
   description: "Sleep Tracker App",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await checkUser();
+  console.log('Current User:', user);
+
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <Navbar/>
-          {children}
-        </body>
-      </html>
+      <UserProvider user={user}>
+        <html lang="en">
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+            <Navbar/>
+            {children}
+            <Footer/>
+          </body>
+        </html>
+      </UserProvider>
     </ClerkProvider>
   );
 }

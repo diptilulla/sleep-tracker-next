@@ -1,7 +1,8 @@
 import { currentUser } from "@clerk/nextjs/server"
 import { db } from "./db"
+import { User } from "@prisma/client";
 
-export const checkUser = async () => {
+export const checkUser = async () : Promise<User | null> => {
     const user = await currentUser();
 
     if(!user) {
@@ -28,4 +29,5 @@ export const checkUser = async () => {
             avatarUrl: user.imageUrl
         }
     })
+    return newUser;
 }
