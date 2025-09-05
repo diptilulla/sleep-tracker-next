@@ -1,5 +1,6 @@
 import AddNewRecord from '@/components/AddNewRecord';
 import Guest from '@/components/Guest';
+import RecordChart from '@/components/RecordChart';
 import { currentUser } from '@clerk/nextjs/server';
 import React from 'react'
 
@@ -52,10 +53,17 @@ export default async function HomePage() {
         </div>
 
         {/* Right Column */}
-        
+        <div className='space-y-6'>
+          {/* Placeholder for RecordStats, RecentRecord, and Insights */}
+          <RecordChart />
+          {/* <AverageSleep /> */}
+          {/* <BestWorstSleep /> */}
+        </div>
       </div>
       {/* Placeholder for SleepHistory */}
-      
+      <div className='max-w-7xl mx-auto'>
+        {/* <RecordHistory /> */}
+      </div>
     </main>
   )
 }
