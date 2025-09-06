@@ -38,7 +38,7 @@ export default async function HomePage() {
                 <div className='space-y-2'>
                   <p className='text-gray-600'>
                     <span className='font-semibold text-gray-800'>Joined:</span>{' '}
-                    {new Date(user?.createdAt!).toLocaleDateString("en-US")}
+                    {user?.createdAt ? new Date(user.createdAt).toLocaleDateString("en-US") : "N/A"}
                   </p>
                   <p className='text-gray-600'>
                     <span className='font-semibold text-gray-800'>
