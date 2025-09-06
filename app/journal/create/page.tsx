@@ -46,7 +46,7 @@ export default function JournalEntry() {
             &larr; Back to Journal
         </Link>
         <h2 className='text-3xl font-bold mt-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-            What's on your mind?
+            What&apos;s on your mind?
         </h2>
         <form 
           ref={formRef}
