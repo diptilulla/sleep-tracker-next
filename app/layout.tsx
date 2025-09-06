@@ -19,8 +19,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "Sleep Tracker",
   description: "Sleep Tracker App",
+  icons: {
+    icon: "/globe.svg",          // Path to your logo/favicon in public/
+  },
 };
 
 export default async function RootLayout({
