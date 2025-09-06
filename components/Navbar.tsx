@@ -1,13 +1,10 @@
+'use client';
+
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 import Link from 'next/link';
 
-import { checkUser } from '@/lib/checkUser';
-
 export default async function Navbar() {
-  const user = await checkUser();
-  console.log('Current User:', user);
-  
   return (
     <nav>
       <div className='w-full mx-auto px-4 sm:px-6 lg:px-8 border-b-2 border-gray-200'>

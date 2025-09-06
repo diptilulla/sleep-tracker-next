@@ -28,9 +28,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await checkUser();
-  console.log('Current User:', user);
-
   return (
     <ClerkProvider>
         <html lang="en">
