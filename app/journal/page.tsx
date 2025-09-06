@@ -2,6 +2,7 @@ import JournalItem from '@/components/JournalItem';
 import { Record } from '@/types/Record';
 import getJournalEntries from '../actions/getJournalEntries';
 import { Journal } from '@/types/Journal';
+import Link from 'next/link';
 
 const JournalEntries = async () => {
   const { entries, error } = await getJournalEntries();
@@ -24,6 +25,12 @@ const JournalEntries = async () => {
           <p className='text-gray-600'>
             Start writing entries to see here.
           </p>
+          <Link
+            href="/journal/create"
+          className='inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-6 py-2 mt-2 rounded-md font-medium shadow-md transition'
+          >
+            + Create Journal Entry
+          </Link>
         </div>
       </div>
     );
@@ -35,6 +42,14 @@ const JournalEntries = async () => {
         <h3 className='text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent border-b border-gray-200 pb-6'>
           Journal Entries
         </h3>
+        <div className='ml-auto w-fit'>
+        <Link
+            href="/journal/create"
+            className='inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-6 py-2 mb-2 mx-auto rounded-md font-medium shadow-md transition'
+          >
+            + New Entry
+          </Link>
+        </div>
         <ul className='space-y-4'>
           {entries.map((entry: Journal) => (
             <JournalItem key={entry.id} entry={entry} />
