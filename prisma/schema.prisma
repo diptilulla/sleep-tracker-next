@@ -22,12 +22,26 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Records  Record[]
+  Entries  Entry[]
 }
 
 model Record {
   id        String   @id @default(uuid())
   text     String
   amount    Float
+  date      DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([userId])
+}
+
+model Entry {
+  id        String   @id @default(uuid())
+  title     String
+  mood      String
+  content   String   @db.Text
   date      DateTime @default(now())
   userId    String
   user      User     @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)

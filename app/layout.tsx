@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import { checkUser } from "@/lib/checkUser";
 import { UserProvider } from "@/context/UserContext";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +40,16 @@ export default async function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <Navbar/>
-            {children}
+            
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center min-h-[200px]">
+                  <ClipLoader size={40} color="#9333ea" /> 
+                </div>
+              }
+            >
+              {children}
+            </Suspense>
             <Footer/>
           </body>
         </html>

@@ -1,7 +1,11 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
-
-export default clerkMiddleware();
-
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
+const isProtectedRoute = createRouteMatcher([
+  '/journal(.*)' //anything that starts with /journal (e.g. /journal/create, /journal/123
+])
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) await auth.protect()
+})
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
