@@ -41,7 +41,7 @@ export default async function JournalEntryPage({
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 space-y-6">
         {/* Date + Mood */}
         <div className="flex items-center justify-between text-sm text-gray-500 border-b pb-3">
-          {entry?.date && <p>{new Date(entry.date).toLocaleDateString()}</p>}
+          {entry?.date && <p>{new Date(entry.date).toLocaleDateString("en-US")}</p>}
           {entry?.mood && <span
             className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
               ["😵 Restless", "😰 Overwhelmed", "😟 Anxious", "😤 Frustrated", "😢 Sad", "😔 Lonely", "😡 Angry"].includes(

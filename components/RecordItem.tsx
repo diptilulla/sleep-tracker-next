@@ -22,7 +22,7 @@ const RecordItem = ({ record }: { record: Record }) => {
     >
       <div className='flex flex-col'>
         <span className='text-sm text-gray-500'>
-          {new Date(record?.date).toLocaleDateString()}
+          {new Date(record?.date).toLocaleDateString("en-US")}
         </span>
         <span className='text-lg font-bold text-gray-800'>
           {record?.amount} hours

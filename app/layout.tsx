@@ -4,7 +4,6 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import { checkUser } from "@/lib/checkUser";
-import { UserProvider } from "@/context/UserContext";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -34,7 +33,6 @@ export default async function RootLayout({
 
   return (
     <ClerkProvider>
-      <UserProvider user={user}>
         <html lang="en">
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -53,7 +51,6 @@ export default async function RootLayout({
             <Footer/>
           </body>
         </html>
-      </UserProvider>
     </ClerkProvider>
   );
 }

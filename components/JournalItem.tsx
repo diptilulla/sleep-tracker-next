@@ -31,7 +31,7 @@ const JournalItem = ({ entry }: { entry: Journal }) => {
     >
       <div className='flex flex-col'>
         <span className='text-sm text-gray-500'>
-          {new Date(entry?.date).toLocaleDateString()}
+          {new Date(entry?.date).toLocaleDateString("en-US")}
         </span>
         <span className='text-md font-bold text-gray-600'>
             {entry?.title}

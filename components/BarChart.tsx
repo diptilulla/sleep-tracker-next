@@ -30,7 +30,7 @@ interface Record {
 const BarChart = ({ records }: { records: Record[] }) => {
   // Prepare data for the chart
   const data = {
-    labels: records.map((record) => new Date(record.date).toLocaleDateString()), // Use record dates as labels
+    labels: records.map((record) => new Date(record.date).toLocaleDateString("en-US")), // Use record dates as labels
     datasets: [
       {
         data: records.map((record) => record.amount), // Use record amounts as data

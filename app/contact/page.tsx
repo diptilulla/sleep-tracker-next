@@ -1,10 +1,6 @@
 'use client';
 
-import { UserContext } from "@/context/UserContext";
-import { useContext } from "react";
-
 const ContactPage = () => {
-  const user = useContext(UserContext)?.user;
   return (
     <div className='font-sans bg-gray-100 text-gray-800'>
       {/* Hero Section */}
@@ -65,8 +61,6 @@ const ContactPage = () => {
               className='mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:text-gray-400'
               placeholder='Your Email'
               required
-              disabled={!!user?.email}
-              value={user?.email || ''}
             />
           </div>
           <div>
